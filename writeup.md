@@ -49,75 +49,43 @@ Here are two examples of images before (left) and after (right) pre-processing:
 
 As the dataset has very few samples of some classes (see the above histogram), I will next augment the dataset by <i> creating</i> more examples of the under-represented classes. I do this by rotating each image from -25 to +25 degrees from the original, and then concatenating (augmenting) the dataset to include the new images. 
 
-Here is a summary of the number of images I generate/add to each class
-
-
-| Class         		|     Number of generated images	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| 0         		| 1907  							| 
-| 1     	| 107	|
-| 2					|		77	|
-|3	      	| 827	|
-| 3    | 317    									|
-| 4		| 437       									|
-| 5				| 1727		|
-|	6				|				797								|
-|	8				|						827						|
-|	9				|									767			|
-|	10				|					287							|
-|	11				|								917				|
-|	12			|				197								|
-|	13			|							167					|
-|	14			|					1397							|
-|	15				|								1547				|
-|	16				|						1727						|
-|	17			|					1097							|
-|	18			|						1007						|
-|	19			|						1907						|
-|	20				|				1787								|
-|	21				|								1817				|
-|	22			|			1757									|
-|	23			|			1637									|
-|	24			|				1847								|
-|	25				|			737									|
-|	26				|		1547										|
-|	27			|				1877								|
-|	28			|				1607								|
-|	29			|				1847								|
-|	20				|							1697					|
-|	31				|											1397	|
-|	32			|		1877										|
-|	33			|			1488									|
-|	34			|			1727									|
-|	35				|			1007									|
-|	36				|							1757					|
-|	37			|				1907								|
-|	38			|					227							|
-|	39			|								1817				|
-|	40				|			1787									|
-|	41				|							1877					|
-|	42			|							1877					|
-
-
-
-The resulting training dataset has 89,741 rows, distributed over the classes as follows:
+See appendix A for a summary of the number of images I generate/add to each class. The resulting training dataset has 89,741 rows, distributed over the classes as follows:
 
 ![image4](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
-
-
-
 
 ## 3. Design, train, and test the neural network
 
 The convolutional neural network (CNN) used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
 
 <ul>
-<li> <b> Layer 1</b>: Convolutional layer (valid padding with single stride size) with a dropout, then activated with Relu. This takes dimensions from 32x32x1 to 28x28x6. Then apply max-pooling, with stride width/height = 2, taking dimensions from 28x28x6 to 14x14x6 </li>
-<li> <b> Layer 2</b>: Convolutional layer (valid padding with single stride size), then activated with Relu, and <i> afterwards with a dropout </i>. This takes dimensions from 14x14x6 to 10x10x16. Then apply max-pooling, with stride width/height = 2, taking dimensions from 14x14x6 to 5x5x16. Flatten this to a single vector of size 1x400 </li>
+<li> <b> Layer 1</b>: Convolutional layer (valid padding with single stride size), then activated with Relu. This takes dimensions from 32x32x1 to 28x28x6. Then apply max-pooling, with stride width/height = 2, taking dimensions from 28x28x6 to 14x14x6. Apply droupout. </li>
+<li> <b> Layer 2</b>: Convolutional layer (valid padding with single stride size), then activated with Relu. This takes dimensions from 14x14x6 to 10x10x16. Then apply max-pooling, with stride width/height = 2, taking dimensions from 14x14x6 to 5x5x16. Then apply dropout. Flatten this to a single vector of size 1x400 </li>
 <li> <b> Layer 3</b>: Fully connected layer: Activate with Relu, and include a dropout. Input size = 400, output size 120 </li>
 <li> <b> Layer 4</b>: Fully conneted layer: Activate with Relu. Input size = 120, output size 84 </li>
 <li> <b> Layer 5</b>: Fully conneted layer: Input size = 84, output size 43 (the number of classes) </li>
 </ul>
+
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x1 Grayscale image   							| 
+| 2D convolution  	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Dropout  	| probabilities defined during implementation|
+| 2D convolution  	| 1x1 stride, valid padding, outputs 10x10x16 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
+| Dropout  	| probabilities defined during implementation|
+| Flatten    | 400x1      									|
+| Fully connected		| outputs 1x120        									|
+| RELU					|												|
+| Dropout  	| probabilities defined during implementation|
+| Fully connected		| outputs 1x84       									|
+| RELU					|												|
+| Dropout  	| probabilities defined during implementation|
+| Fully connected		| outputs 1x43       									|
+
 
 To train the model, I fed the (pre-processed and augmented) training data into the above CNN in batches of size 128 rows. For each row in each batch, I computed the accuracy by comparing the model's output (logits, or probabilities) to the truth (one-hot) vector. I repeated this for each batch, and then computed the total accuracy as the average accuracy over all the batches. 
 
@@ -151,73 +119,13 @@ In summary, the model is:
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
-
----
-###Writeup / README
-
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
-
-###Data Set Summary & Exploration
-
-####1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
-
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
-
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
-
-####2. Include an exploratory visualization of the dataset.
-
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
-
-![alt text][image1]
-
-###Design and Test a Model Architecture
-
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
-
-As a first step, I decided to convert the images to grayscale because ...
-
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image2]
-
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
 
 
 ####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+
  
 
 
@@ -291,4 +199,55 @@ For the second image ...
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+
+
+## Appendices:
+
+### Appendix A: 
+
+| Class         		|     Number of generated images	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 0         		| 1907  							| 
+| 1     	| 107	|
+| 2					|		77	|
+|3	      	| 827	|
+| 3    | 317    									|
+| 4		| 437       									|
+| 5				| 1727		|
+|	6				|				797								|
+|	8				|						827						|
+|	9				|									767			|
+|	10				|					287							|
+|	11				|								917				|
+|	12			|				197								|
+|	13			|							167					|
+|	14			|					1397							|
+|	15				|								1547				|
+|	16				|						1727						|
+|	17			|					1097							|
+|	18			|						1007						|
+|	19			|						1907						|
+|	20				|				1787								|
+|	21				|								1817				|
+|	22			|			1757									|
+|	23			|			1637									|
+|	24			|				1847								|
+|	25				|			737									|
+|	26				|		1547										|
+|	27			|				1877								|
+|	28			|				1607								|
+|	29			|				1847								|
+|	20				|							1697					|
+|	31				|											1397	|
+|	32			|		1877										|
+|	33			|			1488									|
+|	34			|			1727									|
+|	35				|			1007									|
+|	36				|							1757					|
+|	37			|				1907								|
+|	38			|					227							|
+|	39			|								1817				|
+|	40				|			1787									|
+|	41				|							1877					|
+|	42			|							1877					|
 
