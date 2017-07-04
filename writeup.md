@@ -65,27 +65,7 @@ The convolutional neural network (CNN) used for this model is my modification of
 <li> <b> Layer 5</b>: Fully conneted layer: Input size = 84, output size 43 (the number of classes) </li>
 </ul>
 
-
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x1 Grayscale image   							| 
-| 2D convolution  	| 1x1 stride, valid padding, outputs 28x28x6 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
-| Dropout  	| probabilities defined during implementation|
-| 2D convolution  	| 1x1 stride, valid padding, outputs 10x10x16 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
-| Dropout  	| probabilities defined during implementation|
-| Flatten    | 400x1      									|
-| Fully connected		| outputs 1x120        									|
-| RELU					|												|
-| Dropout  	| probabilities defined during implementation|
-| Fully connected		| outputs 1x84       									|
-| RELU					|												|
-| Dropout  	| probabilities defined during implementation|
-| Fully connected		| outputs 1x43       									|
-
+See appendix B for a summary of the model. 
 
 To train the model, I fed the (pre-processed and augmented) training data into the above CNN in batches of size 128 rows. For each row in each batch, I computed the accuracy by comparing the model's output (logits, or probabilities) to the truth (one-hot) vector. I repeated this for each batch, and then computed the total accuracy as the average accuracy over all the batches. 
 
@@ -203,7 +183,7 @@ For the second image ...
 
 ## Appendices:
 
-### Appendix A: 
+### Appendix A: Number of augmented images per class
 
 | Class         		|     Number of generated images	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -251,3 +231,25 @@ For the second image ...
 |	41				|							1877					|
 |	42			|							1877					|
 
+
+### Appendix B: Architecture of the CNN
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x1 Grayscale image   							| 
+| 2D convolution  	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Dropout  	| probabilities defined during implementation|
+| 2D convolution  	| 1x1 stride, valid padding, outputs 10x10x16 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
+| Dropout  	| probabilities defined during implementation|
+| Flatten    | 400x1      									|
+| Fully connected		| outputs 1x120        									|
+| RELU					|												|
+| Dropout  	| probabilities defined during implementation|
+| Fully connected		| outputs 1x84       									|
+| RELU					|												|
+| Dropout  	| probabilities defined during implementation|
+| Fully connected		| outputs 1x43       									|
