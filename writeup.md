@@ -51,7 +51,7 @@ The resulting training dataset has 89,741 rows, distributed over the classes as 
 
 ## 3. Design, train, and test the neural network
 
-The neural network used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
+The convolutional neural network (CNN) used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
 
 <ul>
 <li> <b> Layer 1</b>: Convolutional layer (valid padding with single stride size) with a dropout, then activated with Relu. This takes dimensions from 32x32x1 to 28x28x6. Then apply max-pooling, with stride width/height = 2, taking dimensions from 28x28x6 to 14x14x6 </li>
@@ -60,6 +60,11 @@ The neural network used for this model is my modification of the <a href="http:/
 <li> <b> Layer 4</b>: Fully conneted layer: Activate with Relu. Input size = 120, output size 84 </li>
 <li> <b> Layer 5</b>: Fully conneted layer: Input size = 84, output size 43 (the number of classes) </li>
 </ul>
+
+To train the model, I fed the (pre-processed and augmented) training data into the above CNN in batches of size 128 rows. For each row in each batch, I computed the accuracy by comparing the model's output (logits, or probabilities) to the truth (one-hot) vector. I repeated this for each batch, and then computed the total accuracy as the average accuracy over all the batches. 
+
+The above process defines one epoch, or iteration, of the model's training. For each epoch, we optimize the parameters (i.e. the values of the weights matrices) by minimizing the loss function. Here, the loss function is the cross-entropy of the standard softmax probabilities, and the optimization method is the <b> Adam optimizer </b> which is a first-order gradient-based method, based on adaptive estimates of lower-order moments. 
+
 
 
 
