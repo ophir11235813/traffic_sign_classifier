@@ -49,13 +49,17 @@ The resulting training dataset has 89,741 rows, distributed over the classes as 
 ![image3](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
 
 
-
-
-
 ## 3. Design, train, and test the neural network
 
-The neural network used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. Before describing the model
+The neural network used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
 
+<ol>
+<li> Layer 1: Convolutional layer (valid padding with single stride size) with a dropout, then activated with Relu. This takes dimensions from 32x32x1 to 28x28x6. Then apply max-pooling, with stride width/height = 2, taking dimensions from 28x28x6 to 14x14x6 </li>
+<li> Layer 2: Convolutional layer (valid padding with single stride size), then activated with Relu, and <i> afterwards with a dropout </i>. This takes dimensions from 14x14x6 to 10x10x16. Then apply max-pooling, with stride width/height = 2, taking dimensions from 14x14x6 to 5x5x16. Flatten this to a single vector of size 1x400 </li>
+<li> Layer 3: Fully connected layer: Activate with Relu, and include a dropout. Input size = 400, output size 120 </li>
+<li> Layer 4: Fully conneted layer: Activate with Relu. Input size = 120, output size 84 </li>
+<li> Layer 5: Fully conneted layer: Input size = 84, output size 43 (the number of classes) </li>
+</ol>
 
 
 
