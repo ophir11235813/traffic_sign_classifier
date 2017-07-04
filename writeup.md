@@ -42,6 +42,9 @@ I will pre-process each image of the training, validation, and test data to impr
 <li> <b> Apply adaptive histogram equalization: </b> This improves the contrast in the images, and enhances the definitions of edges.
 </ul>
 
+Here are two examples of images before (left) and after (right) pre-processing: 
+![image2](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/processing.jpg)
+
 As the dataset has very few samples of some classes (see the above histogram), I will next augment the dataset by <i> creating</i> more examples of the under-represented classes. I do this by rotating each image from -25 to +25 degrees from the original, and then concatenating (augmenting) the dataset to include the new images. 
 
 The resulting training dataset has 89,741 rows, distributed over the classes as follows:
