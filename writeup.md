@@ -25,7 +25,7 @@ Each image's dimensions are 32x32x3, where the third dimension represents the th
 
 [//]: # (Image References)
 
-![ScreenShot](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/Traffic_signs_full.png)
+[image1](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/Traffic_signs_full.png)
 
 
 
