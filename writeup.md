@@ -63,8 +63,15 @@ The convolutional neural network (CNN) used for this model is my modification of
 
 To train the model, I fed the (pre-processed and augmented) training data into the above CNN in batches of size 128 rows. For each row in each batch, I computed the accuracy by comparing the model's output (logits, or probabilities) to the truth (one-hot) vector. I repeated this for each batch, and then computed the total accuracy as the average accuracy over all the batches. 
 
-The above process defines one epoch, or iteration, of the model's training. For each epoch, we optimize the parameters (i.e. the values of the weights matrices) by minimizing the loss function. Here, the loss function is the cross-entropy of the standard softmax probabilities, and the optimization method is the <b> Adam optimizer </b> which is a first-order gradient-based method, based on adaptive estimates of lower-order moments. 
+The above process defines one epoch, or iteration, of the model's training. For each epoch, we optimize the parameters (i.e. the values of the weights matrices) by minimizing the loss function. Here, the loss function is the cross-entropy of the standard softmax probabilities, and the optimization method is the <b> Adam optimizer </b> which is a first-order gradient-based method, based on adaptive estimates of lower-order moments. I use a static learning rate of 0.001. More details about the optimizer can be found <a href = "https://arxiv.org/abs/1412.6980">here</a>.
 
+In summary, the model is:
+<ul>
+<li> A modified LeNet 5-layer convolutional neural network, with input dimensions 32x32x1 and output dimension 43 (number of classes) </li>
+<li> Optimized using Adam, with learning rate = 0.001 </li>
+<li> Epochs = 30 </li>
+<li> Batch size = 128 </li>
+</ul>
 
 
 
