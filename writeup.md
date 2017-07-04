@@ -1,21 +1,31 @@
-**Traffic Sign Recognition** 
+# Deep convolutional neural network, to classify traffic signs
+
+In this project, I've created a classification model for common (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and achieves >96% accuracy on the test set.
 
 ---
 
-**Build a Traffic Sign Recognition Project**
+## High level project goals
 
 The goals / steps of this project are the following:
-* Load the data set (see below for links to the project data set)
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
+1. Explore, summarize and visualize the data set
+2. Design, train and test a model architecture
+3. Use the model to make predictions on new images
+4. Analyze the softmax probabilities of the new images
 
+## 1. Explore the dataset
+
+The (pickled) training, validation, and testing data is here. In summary, it has 51,839 samples which are broken into:
+-- 34,799 training samples (67%)
+-- 4,410 validation samples (9%)
+-- 12,630 testing samples (24%)
+
+Each image's dimensions are 32x32x3, where the third dimension represents the three color channels of the (color) image. There are 43 separate classes of image (i.e. types of road signs), and below is a representative sample from each class:
+
+[image1]: (https://raw.github.com/ophir11235813/traffic_sign_classifier/Traffic_signs_full.png)
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
