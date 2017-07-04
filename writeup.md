@@ -15,9 +15,11 @@ The goals / steps of this project are the following:
 ## 1. Explore the dataset
 
 The (pickled) training, validation, and testing data is here. In summary, it has 51,839 samples which are broken into:
-<ul> 34,799 training samples (67%) </ul>
-<ul> 4,410 validation samples (9%) </ul>
-<ul> 12,630 testing samples (24%) </ul>
+<ul> 
+<li> 34,799 training samples (67%) </li>
+<li> 4,410 validation samples (9%) </li>
+<li> 12,630 testing samples (24%) </li>
+</ul>
 
 Each image's dimensions are 32x32x3, where the third dimension represents the three color channels of the (color) image. There are 43 separate classes of image (i.e. types of road signs), and below is a representative sample from each class:
 
