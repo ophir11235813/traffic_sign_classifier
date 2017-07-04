@@ -8,7 +8,8 @@ In this project, I've created a classification model for common (German) road tr
 
 The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
-2. Design, train and test a model architecture
+2. Pre-process the images and augment the dataset
+2. Design, train and test, a model architecture
 3. Use the model to make predictions on new images
 4. Analyze the softmax probabilities of the new images
 
@@ -31,7 +32,29 @@ Note that the training data is <i> not </i> evenly distributed amongst the class
 
 ![image2](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_before.png)
 
+## 2. Pre-process the images and augment the dataset
 
+I will pre-process each image of the training, validation, and test data to improve the accuracy of the model. This pre-processing takes advantage of knowledge we have about the traffic signs:
+
+<ul>
+<li> <b> Focus on region of interest: </b> Each image comes with coordinates of the (two opposite corners of the) bounding box around the sign. I first crop the image to that bounding box, and then resize the image so that it is of size 32x32x3. </li>
+<li> <b> Convert to grayscale: </b> The images' color is not relevant to their meaning, and hence we can convert to grayscale. This reduces the color channels from three to one. </li>
+<li> <b> Apply adaptive histogram equalization: </b> This improves the contrast in the images, and enhances the definitions of edges.
+</ul>
+
+As the dataset has very few samples of some classes (see the above histogram), I will next augment the dataset by <i> creating</i> more examples of the under-represented classes. I do this by rotating each image from -25 to +25 degrees from the original, and then concatenating (augmenting) the dataset to include the new images. 
+
+The resulting training dataset has 89,741 rows, distributed over the classes as follows:
+
+![image3](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
+
+
+
+
+
+## 3. Design, train, and test the neural network
+
+The neural network used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. Before describing the model
 
 
 
