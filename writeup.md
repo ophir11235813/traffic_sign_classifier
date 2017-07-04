@@ -53,6 +53,65 @@ The resulting training dataset has 89,741 rows, distributed over the classes as 
 ![image4](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
 
 
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x3 RGB image   							| 
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
+| Convolution 3x3	    | etc.      									|
+| Fully connected		| etc.        									|
+| Softmax				| etc.        									|
+|						|												|
+|						|												|
+ 
+
+
+Augmenting label 0, which is missing 1907 images
+Augmenting label 1, which is missing 107 images
+Augmenting label 2, which is missing 77 images
+Augmenting label 3, which is missing 827 images
+Augmenting label 4, which is missing 317 images
+Augmenting label 5, which is missing 437 images
+Augmenting label 6, which is missing 1727 images
+Augmenting label 7, which is missing 797 images
+Augmenting label 8, which is missing 827 images
+Augmenting label 9, which is missing 767 images
+Augmenting label 10, which is missing 287 images
+Augmenting label 11, which is missing 917 images
+Augmenting label 12, which is missing 197 images
+Augmenting label 13, which is missing 167 images
+Augmenting label 14, which is missing 1397 images
+Augmenting label 15, which is missing 1547 images
+Augmenting label 16, which is missing 1727 images
+Augmenting label 17, which is missing 1097 images
+Augmenting label 18, which is missing 1007 images
+Augmenting label 19, which is missing 1907 images
+Augmenting label 20, which is missing 1787 images
+Augmenting label 21, which is missing 1817 images
+Augmenting label 22, which is missing 1757 images
+Augmenting label 23, which is missing 1637 images
+Augmenting label 24, which is missing 1847 images
+Augmenting label 25, which is missing 737 images
+Augmenting label 26, which is missing 1547 images
+Augmenting label 27, which is missing 1877 images
+Augmenting label 28, which is missing 1607 images
+Augmenting label 29, which is missing 1847 images
+Augmenting label 30, which is missing 1697 images
+Augmenting label 31, which is missing 1397 images
+Augmenting label 32, which is missing 1877 images
+Augmenting label 33, which is missing 1488 images
+Augmenting label 34, which is missing 1727 images
+Augmenting label 35, which is missing 1007 images
+Augmenting label 36, which is missing 1757 images
+Augmenting label 37, which is missing 1907 images
+Augmenting label 38, which is missing 227 images
+Augmenting label 39, which is missing 1817 images
+Augmenting label 40, which is missing 1787 images
+Augmenting label 41, which is missing 1877 images
+Augmenting label 42, which is missing 1877 images
+
+
 ## 3. Design, train, and test the neural network
 
 The convolutional neural network (CNN) used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
