@@ -40,16 +40,17 @@ I will pre-process each image of the training, validation, and test data to impr
 <li> <b> Focus on region of interest: </b> Each image comes with coordinates of the (two opposite corners of the) bounding box around the sign. I first crop the image to that bounding box, and then resize the image so that it is of size 32x32x3. </li>
 <li> <b> Convert to grayscale: </b> The images' color is not relevant to their meaning, and hence we can convert to grayscale. This reduces the color channels from three to one. </li>
 <li> <b> Apply adaptive histogram equalization: </b> This improves the contrast in the images, and enhances the definitions of edges.
+<li> <b> Normalization: </b> The values of the channels are then transposed by 0.5, so that they are all in the interval [-0.5, 0.5] <;li>
 </ul>
 
 Here are two examples of images before (left) and after (right) pre-processing: 
-![image2](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/processing.jpg)
+![image3](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/processing.jpg)
 
 As the dataset has very few samples of some classes (see the above histogram), I will next augment the dataset by <i> creating</i> more examples of the under-represented classes. I do this by rotating each image from -25 to +25 degrees from the original, and then concatenating (augmenting) the dataset to include the new images. 
 
 The resulting training dataset has 89,741 rows, distributed over the classes as follows:
 
-![image3](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
+![image4](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_after.png)
 
 
 ## 3. Design, train, and test the neural network
