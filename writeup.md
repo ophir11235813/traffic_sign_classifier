@@ -21,9 +21,25 @@ The (pickled) training, validation, and testing data is here. In summary, it has
 
 Each image's dimensions are 32x32x3, where the third dimension represents the three color channels of the (color) image. There are 43 separate classes of image (i.e. types of road signs), and below is a representative sample from each class:
 
+[//]: # (Image References)
+
 ![ScreenShot](https://raw.github.com/ophir11235813/traffic_sign_classifier/images/Traffic_signs_full.png)
 
-[//]: # (Image References)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [image2]: ./examples/grayscale.jpg "Grayscaling"
