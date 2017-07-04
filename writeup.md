@@ -29,7 +29,7 @@ Each image's dimensions are 32x32x3, where the third dimension represents the th
 
 Note that the training data is <i> not </i> evenly distributed amongst the classes: 
 
-![image1](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_before.png)
+![image2](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/histogram_before.png)
 
 
 
