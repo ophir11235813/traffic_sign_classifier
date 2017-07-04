@@ -1,6 +1,6 @@
 # Deep convolutional neural network, to classify traffic signs
 
-In this project, I've created a classification model for common (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and achieves >96% accuracy on the test set.
+In this project, I've created a classification model for common (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves >96% accuracy on the test set. </b>
 
 ---
 
