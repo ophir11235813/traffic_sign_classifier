@@ -96,21 +96,26 @@ Once trained, the above model can be used to classify the following five new tra
 
 ![image6](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/five_signsb.png)
 
-The third and fifth signs may be difficult to classify as they are at an angle, while the second image is complicated by a similar colored (red) cone next to the edges of the sign. Nevertheless, the model accurately classified all the images, which can be expected given that the test accuracy is close to 100%. 
+While the first image (stop sign) is similar to training images, the other images are slightly more challenging than those the model trained on: the third is tilted, the forth has two contrasting colors in the background, and the fifth is partially obstruted by a pole. The second image (elderly crossing) <i> isn't in the training data </i> but is similar to the children crossing sign. 
 
-(OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+The model accurately classified all the images except for the second (hence achieving an 80% accuracy). It classified the second image (elderly crossing) as a children crossing. 
+
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Bicylce crossing      		| Bicylce crossing   									| 
-| Road work     			| Road work 										|
 | Stop					| Stop											|
-| Road work	      		| Road work					 				|
-| Right-of-way at the next intersection			| Right-of-way at the next intersection      							|
+| Elderly crossing      		| Children crossing   									| 
+| Road work     			| Road work 										|
+| 120 kph limit	      		| 120 kph limit				 				|
+| Pedestrians		| Pedestrians      							|
 
-The classification code is located in the XXXth cell of my corresponding Ipython notebook. For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+Consider the fourth image (120 kph), which the model correctly classifies (softmax probability 70%). The next four most "likely" predictions are <i> also </i> speed signs, of limits 30 kph (29%), 100 kph, 80 kph, and 50 kph (the last threes' probabilities add up to <1%). 
+
+![image7](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/german_results.png)
+
+For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
