@@ -1,6 +1,6 @@
 # Deep convolutional neural network, to classify traffic signs
 
-In this project, I've created a classification model for common (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves >96% accuracy on the test set. </b>
+In this project, I've created a classification model for common (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 96% accuracy on the test set. </b>
 
 ---
 
@@ -9,9 +9,9 @@ In this project, I've created a classification model for common (German) road tr
 The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
 2. Pre-process the images and augment the dataset
-2. Design, train and test, a model architecture
-3. Use the model to make predictions on new images
-4. Analyze the softmax probabilities of the new images
+3. Design, train and test, a model architecture
+4. Use the model to make predictions on new images
+5. Analyze the softmax probabilities of the new images
 
 ## 1. Explore the dataset
 
@@ -55,7 +55,7 @@ See appendix A for a summary of the number of images I generate/add to each clas
 
 ## 3. Design, train, and test the neural network
 
-The convolutional neural network (CNN) used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
+The convolutional neural network (CNN) used for this model is my modification of the <a href="http://yann.lecun.com/exdb/lenet/"> LeNet </a>, first developed by Prof. Yann LeCun, published in 1994. I chose this architecture as it performs well on character and number recognition (key features of the traffic signs), while also being computationally light enough that I can run it on my MacBook Pro (2015) without GPU support. It accepts 32x32x1 images, and computes the logits over five layers, implementing max-pooling, convolutions, and dropout. Here is the model architecture:
 
 <ul>
 <li> <b> Layer 1</b>: Convolutional layer (valid padding with single stride size), then activated with Relu. This takes dimensions from 32x32x1 to 28x28x6. Then apply max-pooling, with stride width/height = 2, taking dimensions from 28x28x6 to 14x14x6. Apply droupout. </li>
@@ -79,10 +79,49 @@ In summary, the model is:
 <li> Batch size = 128 </li>
 </ul>
 
+<b> A note on my approach: </b> Implementing the standard LeNet architecture on unprocessed images resulted in an approximately 87% test accuracy. I experimented with various methods to improve the accuracy, some of which were effective while others were not. For example, normalizing the images using the formula (image_value - 128)/128 or <i>only</i> focusing on the bounding box did not improve accuracy. However, converting the image to grayscale, strengthening the definition of its color boundaries (through adaptive histogram equalization), and applying dropout did improve accuracy substantially above 87%.
+
+The training and validation accuracies gradually grew from 80% and 85% respectively, to the following final results:
+* training set accuracy of 99.7%
+* validation set accuracy of 96.9% 
+* test set accuracy of ?
+
+Below is a graph of how my training and validation accuracies improve over the 30 epochs. 
+
+![image5](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/accuracy_epochs.png)
+
+## 4. Using the model to classify new images
+
+Once trained, the above model can be used to classify the following five new traffic signs (downloaded from Google Images): 
+
+![image6](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/five_signs.png)
+
+The third and fifth signs may be difficult to classify as they are at an angle, while the second image is complicated by a similar colored (red) cone next to the edges of the sign. Nevertheless, the model accurately classified all the images, which can be expected given that the test accuracy is close to 100%. 
+
+(OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+
+Here are the results of the prediction:
+
+| Image			        |     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Bicylce crossing      		| Bicylce crossing   									| 
+| Road work     			| Road work 										|
+| Stop					| Stop											|
+| Road work	      		| Road work					 				|
+| Right-of-way at the next intersection			| Right-of-way at the next intersection      							|
+
+The classification code is located in the XXXth cell of my corresponding Ipython notebook. For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .60         			| Stop sign   									| 
+| .20     				| U-turn 										|
+| .05					| Yield											|
+| .04	      			| Bumpy Road					 				|
+| .01				    | Slippery Road      							|
 
 
-
-
+For the second image ... 
 
 
 
@@ -101,63 +140,10 @@ In summary, the model is:
 
 
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-My final model consisted of the following layers:
 
 
- 
 
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
-
-To train the model, I used an ....
-
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
-
-My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
-
-###Test a Model on New Images
-
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-
-Here are five German traffic signs that I found on the web:
-
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
-
-The first image might be difficult to classify because ...
-
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
-
-Here are the results of the prediction:
-
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
-
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
