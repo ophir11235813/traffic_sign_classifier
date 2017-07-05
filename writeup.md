@@ -103,13 +103,13 @@ The model accurately classified all the images except for the second (hence achi
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
+| Image			        |     Prediction	        					| Correct? |
 |:---------------------:|:---------------------------------------------:| 
-| Stop					| Stop											|
-| Elderly crossing      		| Children crossing   									| 
-| Road work     			| Road work 										|
-| 120 kph limit	      		| 120 kph limit				 				|
-| Pedestrians		| Pedestrians      							|
+| Stop					| Stop											| Yes| 
+| Elderly crossing      		| Children crossing   									|  No! |
+| Road work     			| Road work 										| Yes |
+| 120 kph limit	      		| 120 kph limit				 				| Yes| 
+| Pedestrians		| Pedestrians      							|Yes|
 
 Consider the fourth image (120 kph), which the model correctly classifies (softmax probability 70%). The next four most "likely" predictions are <i> also </i> speed signs, of limits 30 kph (29%), 100 kph, 80 kph, and 50 kph (the last threes' probabilities add up to <1%). 
 
