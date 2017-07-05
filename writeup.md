@@ -98,14 +98,11 @@ Once trained, the above model can be used to classify the following five new tra
 
 While the first image (stop sign) is similar to training images, the other images are slightly more challenging than those the model trained on: the third is tilted, the forth has two contrasting colors in the background, and the fifth is partially obstruted by a pole. The second image (elderly crossing) <i> isn't in the training data </i> but is similar to the children crossing sign. 
 
-The model accurately classified all the images except for the second (hence achieving an 80% accuracy). It classified the second image (elderly crossing) as a children crossing. 
-
-
-Here are the results of the prediction:
+The model accurately classified all the images except for the second (hence achieving an 80% accuracy). It classified the second image (elderly crossing) as a children crossing. Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| Correct? |
 |:---------------------:|:---------------------------------------------:|:---------:|
-| Stop					| Stop											| Yes| 
+| No Entry					| No Entry											| Yes| 
 | Elderly crossing      		| Children crossing   									|  No! |
 | Road work     			| Road work 										| Yes |
 | 120 kph limit	      		| 120 kph limit				 				| Yes| 
@@ -115,15 +112,15 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 
 ![image7](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/german_results.png)
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
+
+| Sign         	|     Prediction	of 120 kph sign        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| No Entry         			| No Entry (>99%), all others <1% (Stop, Turn left, No Passing, Priority road)	| 
+| Elderly crossing			| Children crossing (>99%), all others <1% (Bicycles, Road narrows on right, Road work, Dangerous curve on right) 										|
+| Road work					| Road work (97%), Children crossing (2.5%), Beware of ice (0.3%), <0.2% (Bicycles crossing, double curve)										|
+| 120 kmp limit	    | 120 kph	(70%), 30 kph (29%), <1% (100 kph, 80 kph, 50 kph)				 				|
+| Pedestrians				    | Pedestrians (99%), <1% (Childrens crossing, Dangerous curve to right, Right of way at intersection, Road narrows on right      							|
 
 
 For the second image ... 
