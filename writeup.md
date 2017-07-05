@@ -96,7 +96,7 @@ Once trained, the above model can be used to classify the following five new tra
 
 ![image6](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/five_signsb.png)
 
-While the first image (stop sign) is similar to training images, the other images are slightly more challenging than those the model trained on: the third is tilted, the forth has two contrasting colors in the background, and the fifth is partially obstruted by a pole. The second image (elderly crossing) <i> isn't in the training data </i> but is similar to the children crossing sign. 
+While the first image (no entry sign) is similar to training images, the other images are slightly more challenging than those the model trained on: the third is tilted; the forth has two contrasting colors in the background; and the fifth is partially obstruted by a pole. The second image (elderly crossing) <i> isn't in the training data </i> but is similar to the children crossing sign. 
 
 The model accurately classified all the images except for the second (hence achieving an 80% accuracy). It classified the second image (elderly crossing) as a children crossing. Here are the results of the prediction:
 
