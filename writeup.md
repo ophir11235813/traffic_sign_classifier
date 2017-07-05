@@ -104,7 +104,7 @@ The model accurately classified all the images except for the second (hence achi
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| Correct? |
-|:---------------------:|:---------------------------------------------:| 
+|:---------------------:|:---------------------------------------------:|:---------:|
 | Stop					| Stop											| Yes| 
 | Elderly crossing      		| Children crossing   									|  No! |
 | Road work     			| Road work 										| Yes |
