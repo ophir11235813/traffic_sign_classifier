@@ -94,7 +94,7 @@ Below is a graph of how my training and validation accuracies improve over the 3
 
 Once trained, the above model can be used to classify the following five new traffic signs (downloaded from Google Images): 
 
-![image6](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/five_signs.png)
+![image6](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/five_signsb.png)
 
 The third and fifth signs may be difficult to classify as they are at an angle, while the second image is complicated by a similar colored (red) cone next to the edges of the sign. Nevertheless, the model accurately classified all the images, which can be expected given that the test accuracy is close to 100%. 
 
