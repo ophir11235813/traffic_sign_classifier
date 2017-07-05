@@ -10,8 +10,8 @@ The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
 2. Pre-process the images and augment the dataset
 3. Design, train and test, a model architecture
-4. Use the model to make predictions on new images
-5. Analyze the softmax probabilities of the new images
+4. Use the model to make predictions on new images and analyze their softmax probabilities
+5. 
 
 ## 1. Explore the dataset
 
@@ -126,10 +126,6 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 
 
 
-
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
 
 
