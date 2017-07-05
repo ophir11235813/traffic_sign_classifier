@@ -114,55 +114,19 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 
 
 
-| Sign         	|     Prediction	of 120 kph sign        					| 
+| Sign         	|     Top five softmax probabilities        					| 
 |:---------------------:|:---------------------------------------------:| 
-| No Entry         			| No Entry (>99%), all others <1% (Stop, Turn left, No Passing, Priority road)	| 
-| Elderly crossing			| Children crossing (>99%), all others <1% (Bicycles, Road narrows on right, Road work, Dangerous curve on right) 										|
-| Road work					| Road work (97%), Children crossing (2.5%), Beware of ice (0.3%), <0.2% (Bicycles crossing, double curve)										|
-| 120 kmp limit	    | 120 kph	(70%), 30 kph (29%), <1% (100 kph, 80 kph, 50 kph)				 				|
-| Pedestrians				    | Pedestrians (99%), <1% (Childrens crossing, Dangerous curve to right, Right of way at intersection, Road narrows on right      							|
-
-
-For the second image ... 
+| No Entry         			| <b>No Entry (>99%)</b>, all others <1% (Stop, Turn left, No Passing, Priority road)	| 
+| Elderly crossing			| <b>Children crossing (>99%)</b>, all others <1% (Bicycles, Road narrows on right, Road work, Dangerous curve on right) 										|
+| Road work					| <b>Road work (97%)</b>, Children crossing (2.5%), Beware of ice (0.3%), <0.2% (Bicycles crossing, double curve)										|
+| 120 kmp limit	    | <b>120 kph	(70%)</b>, 30 kph (29%), <1% (100 kph, 80 kph, 50 kph)				 				|
+| Pedestrians				    | <b>Pedestrians (99%)</b>, <1% (Childrens crossing, Dangerous curve to right, Right of way at intersection, Road narrows on right      							|
 
 
 
 
 
 
-
-
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
-
-
-
-
-
-
-
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 ####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
