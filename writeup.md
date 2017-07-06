@@ -88,7 +88,7 @@ The training and validation accuracies gradually grew from 80% and 85% respectiv
 
 Below is a graph of how my training and validation accuracies improve over the 30 epochs. 
 
-![image5](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/accuracy_epochs.png)
+![image5](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/accuracy_epochs2.png)
 
 ## 4. Using the model to classify new images
 
