@@ -130,7 +130,7 @@ Each layer of a convolutional neural network extract different features of the i
 
 To do this, consider the following image
 
-![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/right_turn_ahead.jpg)
+![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/right_turn_ahead2.jpg)
 
 Here are the outputs of the different layers:
 
