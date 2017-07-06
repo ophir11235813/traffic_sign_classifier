@@ -1,19 +1,19 @@
 # Classifying traffic signs using deep convolutional neural networks 
 
-In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 95.6% accuracy on the test set. </b>
+In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network (CNN) built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 95.6% accuracy on the test set. </b>
 
 The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
 2. Pre-process the images and augment the dataset
 3. Design, train and test, a model architecture
 4. Use the model to make predictions on new images and analyze their softmax probabilities
-
+5. Vizualize intermediate layers of the CNN
 
 ---
 
 
 
-## 1. Explore the dataset
+## 1. The dataset
 
 The (pickled) training, validation, and testing data is here. In summary, it has 51,839 samples which are broken into:
 <ul> 
