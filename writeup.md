@@ -126,26 +126,11 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 
 ## 5. Visualizing the intermediate states of the CNN
 
-Each layer of a convolutional neural network extract different features of the image. Therefore, to get an insight into what the CNN "does" when classifying an image (rather than treating it as a "black box"), it is useful to visualize the outputs of the different CNN layers. 
-
-To do this, consider the following image
-
-![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/right_turn_ahead3.jpg)
-
-Here are the outputs of the different layers:
-
+Each convolutional layer extracts different features of the image. Therefore, to get an insight into what these convolutions do when classifying an image (rather than treating it as a "black box"), it is useful to visualize the outputs of those layers. To do this, consider the image
+![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/p5.jpg)
+Here is a visualization of the first convolutional layer: 
 Layer1:
-![image9](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer1.jpg)
-Layer2:
-![image10](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer2.jpg)
-Layer3:
-![image11](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer3.jpg)
-Layer4:
-![image12](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer4.jpg)
-Layer5:
-![image13](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer5.jpg)
-
-
+![image9](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/conv_layer.jpg)
 
 
 ## Appendices:
