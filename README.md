@@ -117,10 +117,10 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 | Sign         	|     Top five softmax probabilities        					| 
 |:---------------------:|:---------------------------------------------:| 
 | No Entry         			| <b>No Entry (>99%)</b>, all others <1% (Stop, Turn left, No Passing, Priority road)	| 
-| Elderly crossing			| <b>Children crossing (>99%)</b>, all others <1% (Bicycles, Road narrows on right, Road work, Dangerous curve on right) 										|
+| Elderly crossing			| <b>Children crossing (>99%)</b>, all others <1% (Pedestrians, General Caution, Road work, 80 kph) 										|
 | Road work					| <b>Road work (97%)</b>, Children crossing (2.5%), Beware of ice (0.3%), <0.2% (Bicycles crossing, double curve)										|
-| 120 kmp limit	    | <b>120 kph	(70%)</b>, 30 kph (29%), <1% (100 kph, 80 kph, 50 kph)				 				|
-| Pedestrians				    | <b>Pedestrians (99%)</b>, <1% (Childrens crossing, Dangerous curve to right, Right of way at intersection, Road narrows on right      							|
+| 120 kmp limit	    | <b>120 kph	(62%)</b>, 100 kph (27%), 80 kph (1%), <1% (30 kph, 20 kph)				 				|
+| Pedestrians				    | <b>Pedestrians (84%)</b>, Right of way at next intersection (13%) <1% (Childrens crossing, Keep left, General caution)      							|
 
 
 
