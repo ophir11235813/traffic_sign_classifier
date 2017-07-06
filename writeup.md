@@ -1,6 +1,6 @@
 # Classifying traffic signs using deep convolutional neural networks 
 
-In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 95% accuracy on the test set. </b>
+In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 95.6% accuracy on the test set. </b>
 
 The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
@@ -82,9 +82,9 @@ In summary, the model is:
 <b> A note on my approach: </b> Implementing the standard LeNet architecture on unprocessed images resulted in an approximately 87% test accuracy. I experimented with various methods to improve the accuracy, some of which were effective while others were not. For example, normalizing the images using the formula (image_value - 128)/128 or <i>only</i> focusing on the bounding box did not improve accuracy. However, converting the image to grayscale, strengthening the definition of its color boundaries (through adaptive histogram equalization), and applying dropout did improve accuracy substantially above 87%.
 
 The training and validation accuracies gradually grew from 80% and 85% respectively, to the following final results:
-* training set accuracy of 99.7%
-* validation set accuracy of 96.9% 
-* test set accuracy of ?
+* training set accuracy of 99.6%
+* validation set accuracy of 96.5% 
+* test set accuracy of 95.6%
 
 Below is a graph of how my training and validation accuracies improve over the 30 epochs. 
 
