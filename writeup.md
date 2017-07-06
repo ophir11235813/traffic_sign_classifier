@@ -1,6 +1,6 @@
 # Classifying traffic signs using deep convolutional neural networks 
 
-In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 96% accuracy on the test set. </b>
+In this project, I've created a classification model for (German) road traffic signs, using a deep convolutional neural network built off a variation on the LeNet architecture. I am also pre-processing images to improve accuracy. The below code takes ~10 minutes to train on a MacBook Pro (2015) over ~20 epochs, and <b> achieves 95% accuracy on the test set. </b>
 
 The goals / steps of this project are the following:
 1. Explore, summarize and visualize the data set
@@ -124,7 +124,26 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 
 
 
+## 5. Visualizing the intermediate states of the CNN
 
+Each layer of a convolutional neural network extract different features of the image. Therefore, to get an insight into what the CNN "does" when classifying an image (rather than treating it as a "black box"), it is useful to visualize the outputs of the different CNN layers. 
+
+To do this, consider the following image
+
+![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/right_turn_ahead.jpg)
+
+Here are the outputs of the different layers:
+
+Layer1:
+![image9](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer1.jpg)
+Layer2:
+![image10](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer2.jpg)
+Layer3:
+![image11](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer3.jpg)
+Layer4:
+![image12](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer4.jpg)
+Layer5:
+![image13](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/layer5.jpg)
 
 
 
