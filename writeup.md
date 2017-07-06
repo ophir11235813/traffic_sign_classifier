@@ -127,10 +127,13 @@ Consider the fourth image (120 kph), which the model correctly classifies (softm
 ## 5. Visualizing the intermediate states of the CNN
 
 Each convolutional layer extracts different features of the image. Therefore, to get an insight into what these convolutions do when classifying an image (rather than treating it as a "black box"), it is useful to visualize the outputs of those layers. To do this, consider the image
+
 ![image8](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/p5.jpg)
+
 Here is a visualization of the first convolutional layer: 
+
 Layer1:
-![image9](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/conv_layer.jpg)
+![image9](https://raw.github.com/ophir11235813/traffic_sign_classifier/master/images/conv_layer.png)
 
 
 ## Appendices:
